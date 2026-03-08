@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة ذرة الأبرار للسفر والسياحة</title>
+    
+    <!-- استيراد خطوط جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- استيراد مكتبة الأيقونات (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- إعدادات Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',    // أزرق داكن ملكي
+                            gold: '#D4AF37',    // ذهبي راقي
+                            light: '#f8fafc',   // رمادي فاتح للخلفيات
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* تأثيرات إضافية للصور */
+        .hover-scale {
+            transition: transform 0.3s ease-in-out;
+        }
+        .group:hover .hover-scale {
+            transform: scale(1.05);
+        }
+
+        /* خلفية القسم الرئيسي */
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1565552643954-1eb956891eb7?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+    <!-- CSS variables and lightweight class overrides so we can theme the page at runtime
+         The defaults match the Tailwind-configured colors; they will be replaced by the
+         logo-based colors once the image is loaded. -->
+    <style>
+        :root{
+            --site-primary: #D4AF37; /* gold */
+            --site-dark: #0f172a;    /* dark */
+            --site-light: #f8fafc;   /* light bg */
+        }
+
+        /* Override utility-like classes so Tailwind classes respond to runtime variables */
+        .text-brand-gold{ color: var(--site-primary) !important; }
+        .bg-brand-gold{ background-color: var(--site-primary) !important; }
+        .border-brand-gold{ border-color: var(--site-primary) !important; }
+        .text-brand-dark{ color: var(--site-dark) !important; }
+        .bg-brand-dark{ background-color: var(--site-dark) !important; }
+        .bg-brand-light{ background-color: var(--site-light) !important; }
+    </style>
+
+    <!-- meta theme-color updated dynamically to match the logo (fallback set to gold) -->
+    <meta name="theme-color" content="#D4AF37" id="meta-theme-color">
+</head>
+<body class="bg-brand-light text-gray-800 antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- شريط الملاحة (Navbar) -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- الشعار (يستخدم logo.png إذا كان موجوداً) -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img id="site-logo" src="logo.png" alt="ذرة الأبرار" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
+                    <span class="font-bold text-2xl text-brand-dark tracking-wide">ذرة الأبرار</span>
+                </div>
+                
+                <!-- روابط الملاحة (شاشات كبيرة) -->
+                <div class="hidden md:flex space-x-8 space-x-reverse items-center">
+                    <a href="#about" class="text-gray-600 hover:text-brand-gold font-semibold transition-colors">من نحن</a>
+                    <a href="#vision" class="text-gray-600 hover:text-brand-gold font-semibold transition-colors">رؤيتنا ورسالتنا</a>
+                    <a href="#services" class="text-gray-600 hover:text-brand-gold font-semibold transition-colors">خدماتنا</a>
+                    <a href="#contact" class="bg-brand-gold text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-600 transition-colors shadow-lg shadow-brand-gold/30">تواصل معنا</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي (Hero Section) -->
+    <section class="hero-bg min-h-screen flex items-center justify-center pt-20 relative">
+        <div class="text-center px-4 max-w-4xl mx-auto relative z-10">
+            <span class="text-brand-gold font-bold text-lg md:text-xl mb-4 block tracking-wider">الخيار الأول لرحلات الحج والعمرة</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                شركة ذرة الأبرار <br> للسفر والسياحة
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+                نقدم لكم تجربة دينية سلسة ومميزة لرحلات الحج والعمرة بأعلى مستويات الخدمة والجودة، لنكون رفقاءكم في أطهر بقاع الأرض.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#services" class="bg-brand-gold text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-yellow-600 transition-all shadow-lg hover:shadow-brand-gold/50 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-plane-departure"></i> استكشف خدماتنا
+                </a>
+                <a href="#contact" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-white hover:text-brand-dark transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone"></i> اتصل بنا الآن
+                </a>
+            </div>
+        </div>
+        
+        <!-- شكل جمالي أسفل القسم -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-full h-12 md:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.82,200.5,116.63V116.63Z" fill="#f8fafc"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- قسم النبذة والرؤية (About & Vision) -->
+    <section id="about" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">من نحن</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- المحتوى النصي -->
+                <div class="space-y-8" id="vision">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-2 h-full bg-brand-gold"></div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-3 flex items-center gap-3">
+                            <i class="fa-solid fa-building text-brand-gold"></i> نبذة عنا
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed text-lg">
+                            شركة متخصصة في السياحة الدينية، تأسست لتقديم خدمات شاملة واحترافية لرحلات الحج والعمرة، لتيسير رحلة ضيوف الرحمن وضمان راحتهم طوال فترة إقامتهم.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- الرؤية -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                            <div class="w-12 h-12 bg-blue-50 text-brand-gold rounded-full flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-brand-dark mb-2">رؤيتنا</h4>
+                            <p class="text-gray-600">أن نكون الخيار الأول لرحلات الحج والعمرة بأعلى مستوى من الخدمة والجودة، محلياً وإقليمياً.</p>
+                        </div>
+                        
+                        <!-- الرسالة -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                            <div class="w-12 h-12 bg-blue-50 text-brand-gold rounded-full flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-brand-dark mb-2">رسالتنا</h4>
+                            <p class="text-gray-600">تقديم تجربة دينية سلسة ومميزة لعملائنا من خلال فريق متخصص وخدمات متكاملة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- شبكة الصور -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="rounded-2xl overflow-hidden h-48 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=1000&auto=format&fit=crop" alt="المسجد النبوي" class="w-full h-full object-cover">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden h-64 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=800&auto=format&fit=crop" alt="فنادق فخمة" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="space-y-4 mt-8">
+                        <div class="rounded-2xl overflow-hidden h-64 shadow-lg">
+                            <img src="1.jpg" alt="الكعبة المشرفة" class="w-full h-full object-cover">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden h-48 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop" alt="طيران مريح" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات (Services) -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-gold font-bold tracking-wider">ما نقدمه لضيوف الرحمن</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-2 mb-4">خدماتنا المتميزة</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- خدمة 1 -->
+                <div class="group bg-brand-light rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                            <div class="w-full h-full bg-brand-light hover-scale"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent flex items-end p-4">
+                                <i class="fa-solid fa-kaaba text-white text-3xl mb-2"></i>
+                            </div>
+                        </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-brand-dark mb-2">تنظيم رحلات الحج والعمرة</h3>
+                        <p class="text-gray-600">برامج متكاملة تناسب جميع المستويات، تضمن لك أداء المناسك براحة وطمأنينة.</p>
+                    </div>
+                </div>
+
+                <!-- خدمة 2 -->
+                <div class="group bg-brand-light rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                            <div class="w-full h-full bg-brand-light hover-scale"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent flex items-end p-4">
+                                <i class="fa-solid fa-hotel text-white text-3xl mb-2"></i>
+                            </div>
+                        </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-brand-dark mb-2">حجز الفنادق</h3>
+                        <p class="text-gray-600">خيارات إقامة متعددة في مكة والمدينة، قريبة من الحرمين الشريفين لتسهيل وصولك.</p>
+                    </div>
+                </div>
+
+                <!-- خدمة 3 -->
+                <div class="group bg-brand-light rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                            <div class="w-full h-full bg-brand-light hover-scale"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent flex items-end p-4">
+                                <i class="fa-solid fa-plane text-white text-3xl mb-2"></i>
+                            </div>
+                        </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-brand-dark mb-2">تذاكر الطيران</h3>
+                        <p class="text-gray-600">حجوزات مؤكدة على أفضل الخطوط الجوية وبأسعار تنافسية لتجربة سفر مريحة.</p>
+                    </div>
+                </div>
+
+                <!-- خدمة 4 -->
+                <div class="bg-white border-2 border-brand-light p-6 rounded-2xl hover:border-brand-gold transition-colors flex gap-4">
+                    <div class="w-12 h-12 flex-shrink-0 bg-brand-gold/10 text-brand-gold rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-2">توفير مرافقين وإرشادات</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">توفير مرافقين ذوي خبرة وإرشادات مستمرة في الأماكن المقدسة لضمان أداء المناسك بشكل صحيح.</p>
+                    </div>
+                </div>
+
+                <!-- خدمة 5 -->
+                <div class="bg-white border-2 border-brand-light p-6 rounded-2xl hover:border-brand-gold transition-colors flex gap-4">
+                    <div class="w-12 h-12 flex-shrink-0 bg-brand-gold/10 text-brand-gold rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-2">جولات تعريفية (المزارات)</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">تنظيم جولات تعريفية لأهم المعالم التاريخية والدينية داخل مكة المكرمة والمدينة المنورة.</p>
+                    </div>
+                </div>
+
+                <!-- خدمة 6 -->
+                <div class="bg-white border-2 border-brand-light p-6 rounded-2xl hover:border-brand-gold transition-colors flex gap-4">
+                    <div class="w-12 h-12 flex-shrink-0 bg-brand-gold/10 text-brand-gold rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-bus"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-2">خدمات النقل والمواصلات</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">توفير حافلات وسيارات حديثة ومكيفة لنقل المجموعات بين المدن والمشاعر المقدسة.</p>
+                    </div>
+                </div>
+
+                <!-- خدمة 7 (تتوسط في الشاشات الكبيرة) -->
+                <div class="bg-white border-2 border-brand-light p-6 rounded-2xl hover:border-brand-gold transition-colors flex gap-4 md:col-span-2 lg:col-span-1 lg:col-start-2">
+                    <div class="w-12 h-12 flex-shrink-0 bg-brand-gold/10 text-brand-gold rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-2">جلسات دينية وتعليمية</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">ترتيب جلسات ومحاضرات دينية خلال الرحلة لشرح مناسك الحج والعمرة وفضائلهما.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل (Contact Info & Footer) -->
+    <footer id="contact" class="bg-brand-dark text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 border-b border-gray-700 pb-12">
+                
+                <!-- معلومات الشركة -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-kaaba text-brand-gold text-4xl"></i>
+                        <span class="font-bold text-3xl tracking-wide">ذرة الأبرار</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        رفيقك الدائم نحو الأراضي المقدسة. نسعى دائماً لتقديم أفضل الخدمات السياحية الدينية لتكون رحلتك مفعمة بالروحانية والراحة.
+                    </p>
+                </div>
+
+                <!-- روابط سريعة -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6 text-brand-gold">روابط سريعة</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-left text-sm text-brand-gold"></i> الرئيسية</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-left text-sm text-brand-gold"></i> من نحن</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-left text-sm text-brand-gold"></i> خدماتنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- معلومات التواصل -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6 text-brand-gold">تواصل معنا</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-gold">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-gray-200">العنوان:</strong>
+                                <span class="text-gray-400">طرابلس، شارع النصر</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-gold">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-gray-200">أرقام التواصل:</strong>
+                                <span class="text-gray-400 block" dir="ltr">092 220 1869</span>
+                                <span class="text-gray-400 block" dir="ltr">091 661 0182</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-gold">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-gray-200">البريد الإلكتروني:</strong>
+                                <a href="mailto:amsakul234@gmail.com" class="text-gray-400 hover:text-brand-gold transition-colors">amsakul234@gmail.com</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- حقوق النشر -->
+            <div class="text-center text-gray-500 text-sm">
+                <p>جميع الحقوق محفوظة &copy; 2024 شركة ذرة الأبرار للسفر والسياحة.</p>
+            </div>
+        </div>
+    </footer>
+    </footer>
+
+        <!-- Script: extract average color from logo.png and apply to CSS variables + meta theme-color -->
+        <script>
+            (function(){
+                const img = document.getElementById('site-logo');
+                const meta = document.getElementById('meta-theme-color');
+
+                // Convert rgb to hex
+                function rgbToHex(r,g,b){
+                    return '#'+[r,g,b].map(x=>{
+                        const s = x.toString(16);
+                        return s.length===1? '0'+s : s;
+                    }).join('');
+                }
+
+                // Lightweight shading helper (percent -100..100)
+                function shade(hex, percent){
+                    const f = parseInt(hex.slice(1),16);
+                    const R = f >> 16, G = (f >> 8) & 0x00FF, B = f & 0x0000FF;
+                    const t = percent < 0 ? 0 : 255;
+                    const p = Math.abs(percent) / 100;
+                    const newR = Math.round((t - R) * p) + R;
+                    const newG = Math.round((t - G) * p) + G;
+                    const newB = Math.round((t - B) * p) + B;
+                    return rgbToHex(newR, newG, newB);
+                }
+
+                function averageColorFromImage(imgEl, callback){
+                    try{
+                        // small canvas for speed & to average colors
+                        const canvas = document.createElement('canvas');
+                        const size = 16; canvas.width = size; canvas.height = size;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(imgEl, 0, 0, size, size);
+                        const data = ctx.getImageData(0,0,size,size).data;
+                        let r=0,g=0,b=0,count=0;
+                        for(let i=0;i<data.length;i+=4){
+                            const alpha = data[i+3];
+                            if(alpha===0) continue; // ignore transparent
+                            r += data[i]; g += data[i+1]; b += data[i+2]; count++;
+                        }
+                        if(count===0) return callback('#D4AF37');
+                        r = Math.round(r/count); g = Math.round(g/count); b = Math.round(b/count);
+                        callback(rgbToHex(r,g,b));
+                    }catch(e){
+                        // on any error, fallback
+                        callback('#D4AF37');
+                    }
+                }
+
+                function applyColors(hex){
+                    document.documentElement.style.setProperty('--site-primary', hex);
+                    // create readable dark/light variants
+                    const dark = shade(hex, -60);
+                    const light = shade(hex, 92);
+                    document.documentElement.style.setProperty('--site-dark', dark);
+                    document.documentElement.style.setProperty('--site-light', light);
+                    if(meta) meta.setAttribute('content', hex);
+                }
+
+                function process(){
+                    if(!img) return;
+                    if(img.complete && img.naturalWidth){
+                        averageColorFromImage(img, applyColors);
+                    } else {
+                        img.addEventListener('load', ()=>averageColorFromImage(img, applyColors));
+                        img.addEventListener('error', ()=>{/* keep defaults */});
+                    }
+                }
+
+                // Run on next tick
+                setTimeout(process, 50);
+            })();
+        </script>
+
+    </body>
+</html>
